@@ -1,15 +1,38 @@
 <head>
-  <title>meteor_app</title>
+  <title>Super Villains!</title>
 </head>
 
 <body>
-  {{> hello}}
+    <div class="page-header">{{>hello}}</div>
+    {{> cards}}
 </body>
 
 <template name="hello">
-  <div class="hello">
-    <h1>Hello World!</h1>
-    {{greeting}}
-    <input type="button" value="Click" />
-  </div>
+    <h1>
+      Hello Henchmen!
+      <small>{{greeting}}</small>
+    </h1>
+</template>
+
+
+<template name="cards">
+  <ul class="thumbnails">
+    {{#each villians}}
+      {{> villian}}
+    {{/each}}
+  </ul>
+</template>
+
+<template name="villian">
+  <li class="span3">
+    <div class="thumbnail">
+      <img src="http://placehold.it/260x180" alt="">
+      <div class="caption">
+        <span class="badge">1</span>
+        <h5>{{name}}</h5>
+        <p>{{description}}</p>
+        <p><a href="#" class="btn btn-primary">Like</a> <a href="#" class="btn">Dislikes</a></p>
+      </div>
+    </div>
+  </li>
 </template>
