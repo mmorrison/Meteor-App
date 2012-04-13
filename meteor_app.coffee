@@ -2,14 +2,27 @@ Villians = new Meteor.Collection("villians")
 
 if Meteor.is_client
   
-  window.villians = (key,value) ->
+  window.villians = Villians
+  
+  window.villiansInsert = (key,value) ->
     Villians.insert({name: key, description: value})
   
   Template.cards.villians = () ->
-    return Villians.find({})
+    return Villians.find({}, {sort: {likes: -1, name: 1}})
   
   Template.hello.greeting = () ->
     return "Vote For Your Favorite Super Villain"
+    
+  Template.villian.events =
+    'click .btn-primary' : (e) ->
+      e.preventDefault()
+      if typeof console isnt 'undefined'
+        Villians.update({_id: this._id}, {$inc: {likes: 1}});
+    
+    'click .btn-secondary' : (e) ->
+      e.preventDefault()
+      if typeof console isnt 'undefined'
+        Villians.update({_id: this._id}, {$inc: {likes: -1}});
 
   Template.hello.events = 
     'click input' : () ->

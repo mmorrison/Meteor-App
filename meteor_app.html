@@ -25,13 +25,15 @@
 
 <template name="villian">
   <li class="span3">
-    <div class="thumbnail">
+    <div class="thumbnail">{{img}}
       <img src="http://placehold.it/260x180" alt="">
       <div class="caption">
-        <span class="badge">1</span>
+        {{#if likes}}
+          <span class="badge">{{likes}}</span>
+        {{/if}}
         <h5>{{name}}</h5>
         <p>{{description}}</p>
-        <p><a href="#" class="btn btn-primary">Like</a> <a href="#" class="btn">Dislikes</a></p>
+        <p><a href="#" class="btn btn-primary">Like</a> <a href="#" class="btn btn-secondary">Dislike</a></p>
       </div>
     </div>
   </li>
