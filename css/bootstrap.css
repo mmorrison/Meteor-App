@@ -4645,3 +4645,18 @@ a.thumbnail:hover {
     margin-left: 30px;
   }
 }
+
+
+.thumbnail span{
+position:absolute;
+margin:5px;
+}
+@media (min-width: 768px) and (max-width: 980px) {
+.thumbnail img{
+height:150px;
+}
+.thumbnail p{
+overflow: hidden;
+height:250px;
+}
+}

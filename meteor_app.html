@@ -1,15 +1,17 @@
 <head>
-  <title>Super Villains!</title>
+  <title>Super Villain Showdown!</title>
 </head>
 
 <body>
+  <div class="container">
     <div class="page-header">{{>hello}}</div>
     {{> cards}}
+  </div>
 </body>
 
 <template name="hello">
     <h1>
-      Hello Henchmen!
+      Super Villain Showdown!
       <small>{{greeting}}</small>
     </h1>
 </template>
@@ -25,15 +27,15 @@
 
 <template name="villian">
   <li class="span3">
-    <div class="thumbnail">{{img}}
-      <img src="http://placehold.it/260x180" alt="">
+    <div class="thumbnail">
+      {{#if likes}}
+        <span class="badge badge-info">{{likes}}</span>
+      {{/if}}
+      <img src="{{img_url}}" alt="{{name}}">
       <div class="caption">
-        {{#if likes}}
-          <span class="badge">{{likes}}</span>
-        {{/if}}
         <h5>{{name}}</h5>
         <p>{{description}}</p>
-        <p><a href="#" class="btn btn-primary">Like</a> <a href="#" class="btn btn-secondary">Dislike</a></p>
+        <a href="#" class="btn btn-primary">Like</a> <a href="#" class="btn btn-secondary">Dislike</a>
       </div>
     </div>
   </li>
